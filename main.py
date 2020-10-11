@@ -50,4 +50,6 @@ if __name__ == '__main__':
 
 
 def runApp(host,port):
+    print(host)
+    print(port)
     socketio.run(app)
