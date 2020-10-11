@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/chat.css" />
+        <link rel="stylesheet" href="/libs/fontawesome/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="/libs/socket.io.min.js"></script>
+        <script>
+            var socket;
+            $(document).ready(function () {
+                socket = io();
+            });
+        </script>
+        <script defer src="/js/theme.js"></script>
+        <script defer src="/js/headbtns.js"></script>
+    </head>
+    <body user-name="{{user[1]}}">
+        <div id="back-btn"></div>
+        <div class="chat">
+            <div class="chat__main">
+                <header>{{room[1]}}</header>
+                <div class="messagesBx">
+                    {%if messages%} {%for message in messages%}
+                    <div class="chatBubbleBx">
+                        <div class="chatBubble {%if message[0]==user[1]%}me{%else%}you{%endif%}">
+                            <p class="by">{{message[0]}}</p>
+                            <p class="body">{{message[1]}}</p>
+                            <p class="time">{{message[2]}}</p>
+                        </div>
+                    </div>
+                    {%endfor%} {%endif%}
+                </div>
+                <div class="messageForm">
+                    <form id="msg-form" autocomplete="off" spellcheck="false">
+                        <input type="text" name="msg" placeholder="Mesajı bura yazın..." />
+                        <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="/js/chat.js"></script>
+    </body>
+</html>
