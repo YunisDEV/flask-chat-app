@@ -36,6 +36,7 @@ def send_message_handler(data):
 def connect(data):
     clients.append({'id': request.sid, 'room': data['room']})
 
+
 @socketio.on('disconnect')
 def disconnect():
     for i in range(len(clients)):
@@ -46,3 +47,7 @@ def disconnect():
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
+
+
+def runApp():
+    socketio.run(app)
