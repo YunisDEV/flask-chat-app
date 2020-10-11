@@ -1,4 +1,4 @@
-from main import runApp as application
+from main import  application
 
 if __name__ == '__main__':
-    application()
+    application.run('0.0.0.0',5000)

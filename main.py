@@ -45,8 +45,15 @@ def disconnect():
             break
 
 
-if __name__ == '__main__':
-    socketio.run(app, debug=True)
+# if __name__ == '__main__':
+#     socketio.run(app, debug=True)
 
-def runApp(a,b):
-    socketio.run(app, debug=True,host=a,port=b)
+class ApplicationInterface:
+    def __init__(self,socketio,app):
+        self.socket = socketio
+        self.app = app
+    
+    def run(self,host='0.0.0.0',port=5000):
+        self.socket.run(self.app,host=host,port=port)
+
+application = ApplicationInterface(socketio,app)
