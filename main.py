@@ -49,7 +49,5 @@ if __name__ == '__main__':
     socketio.run(app, debug=True)
 
 
-def runApp(host,port):
-    print(host)
-    print(port)
+def runApp():
     socketio.run(app)
