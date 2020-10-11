@@ -7,7 +7,7 @@ from auth import authenticate
 import datetime
 from routes import app
 
-socketio = SocketIO(app, logger=True)
+socketio = SocketIO(app)
 
 clients = []
 
