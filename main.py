@@ -49,5 +49,4 @@ if __name__ == '__main__':
     socketio.run(app, debug=True)
 
 def runApp(a,b):
-    print(a,b)
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=True,host=a,port=b)
